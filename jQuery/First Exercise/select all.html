@@ -1,0 +1,68 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <title>Document</title>
+  <!-- Add JQuery here -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript">
+      $("document").ready(function() {
+          // Example
+          // Use basic selectors, basic filters, attribute selectors, content filters, hierarchy filters
+		  
+		  //select by using 'ID Selector' and 'Element name selector'
+          $('#button1').toggle(function() {
+              $("p").css("border", "3px solid red");
+          }, function() {
+              $("p").css("border", "");
+          });
+		  
+		  //Select 'all elements',by using 'ID Selector'
+		  $('#btnAll').toggle(function() {
+		  $("*").css("border","3px solid green")
+		  },function(){
+		  $("*").css("border","");
+		  } 
+		  );
+		  
+		  //Select by using 'class selector'
+		  $('#btnClass').toggle(function(){
+		  $(".myclass").css("background-color","EEEEEE");
+		  },function(){
+		  $(".myclass").css("background-color","");
+		  }		  
+		  );
+		  
+		  //Selector on atrribute
+		  $('#btnAttribute').toggle(function(){
+		  $('li[class*="b"]').css('border','3px dotted green'); 
+		  },function(){
+		  $('li[class*="b"]').css('border','');
+		  }		  
+		  )
+		  
+	   
+
+      });
+  </script>
+  <style type="text/css">
+  .a { color: Navy; }
+  .b { color: Maroon; }
+  </style>
+  </head>
+  <body>
+      <ul id="list1" class="myclass">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>
+      </ul>
+      <p class="a">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b">This is paragraph 3</p>
+      <p>This is paragraph 4</p>
+      <!-- Add multiple buttons for each selector -->
+      <input type="button" id="button1" value="Select All Ps" />
+	  <input type="button" id="btnAll" value="Border the entier content" />
+	  <input type="button" id="btnClass" value="Select the Li"  />
+	  <input type="button" id="btnAttribute" value="Select the Li class attribute"  />
+  </body>
+  </html>

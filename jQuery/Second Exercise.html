@@ -1,0 +1,151 @@
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Using Form Selectors and Filters</title>
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <!-- Add JQuery here -->
+      <script type="text/javascript">
+          $("document").ready(function() {
+              $('#button1').toggle(function() {
+                  $("form :input").css("border", "3px solid red");
+              }, function() {
+                  $("form :input").css("border", "");
+              });
+			  
+			  //:button selector
+			  $("#btnButton").click(function ()
+			  {
+			   var input = $(":button").addClass("marked"); 
+               $("div").text( "For button type jQuery found " + input.length + "." );
+               $("form").submit(function () { return false; }); 			   
+			  });
+			  
+			  $("#btnCheckBox").click(function (){
+			  var input = $("form input:checkbox").wrap('<span></span>').parent().css({background:"yellow", border:"3px red solid"}); 
+              $("div").text("For checkbox type jQuery found " + input.length + ".").css("color", "red"); 
+              $("form").submit(function () { return false; }); // so it won't submit 
+			  })
+			  
+			  $("#btnCheckBoxCount").click(function countChecked() { 
+              var n = $("input:checked").length; 
+			  $("div").text(n + (n <= 1 ? " is" : " are") + " checked!"); 
+              } 
+			  )
+			  
+			  $("#bthDisables").click(function(){
+			  $("input:disabled").val("this is it");
+			  })
+			  
+			  $("#btnFile").click(function (){
+			    var input = $("input:file").css({background:"yellow", border:"3px red solid"}); 
+				$("div").text("For file type jQuery found " + input.length + ".").css("color", "red"); 
+				$("form").submit(function () { return false; }); // so it won't submit
+			  })
+  
+   
+ 
+
+  
+          });
+      </script>
+      <style type="text/css">
+          .style1 {
+              width: 600px;
+          }
+
+          .style2 {
+              width: 200px;
+          }
+		  textarea { height:35px; } 
+         div { color: red; } 
+         fieldset { margin: 0; padding: 0; border-width: 0; } 
+         .marked { background-color: yellow; border: 3px red solid; }
+      </style>
+  </head>
+  <body>
+
+  <h1>
+      Example Form Document</h1>
+
+  <form action="" method="post">
+
+      <table class="style1">
+          <tbody>
+          <tr>
+              <td class="style2">
+                  First Name
+              </td>
+              <td>
+                  <input id="FirstName" type="text"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Last Name
+              </td>
+              <td>
+                  <input id="LastName" type="text"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Disabled Element
+              </td>
+              <td>
+                  <input id="Text1" type="text" disabled="disabled"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Gender
+              </td>
+              <td>
+                  <input id="Male" type="radio" checked="checked"/>M<input id="Female" type="radio"/>F
+              </td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  What products are you interested in?
+              </td>
+              <td>
+                  <input id="Checkbox1" type="checkbox" checked="checked"/><label for="Checkbox1">Widgets</label><br/>
+                  <input id="Checkbox2" type="checkbox"/><label for="Checkbox1">Hibbity Jibbities</label><br/>
+                  <input id="Checkbox3" type="checkbox" checked="checked"/><label for="Checkbox1">SplashBangers</label><br/>
+                  <input id="Checkbox4" type="checkbox"/><label for="Checkbox1">Whatzits</label></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Comments:
+              </td>
+              <td>
+                  <textarea id="Comments" cols="40" name="S1" rows="5"></textarea></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Optional life story file
+              </td>
+              <td>
+                  <input id="File1" type="file"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  &nbsp;</td>
+              <td>
+                  &nbsp;</td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  &nbsp;</td>
+              <td>
+                  <input id="Submit1" type="submit" value="submit"/>
+                  <input id="Reset1" type="reset" value="reset"/></td>
+          </tr>
+          </tbody>
+      </table>
+<div> 
+</div>
+  </form>
+  <input type="button" id="button1" value="Select All Form input"/>
+  <input type="button" id="btnButton" value="Find Button"/>
+  <input type="button" id="btnCheckBox" value="Find CheckBox"/>
+  <input type="button" id="btnCheckBoxCount" value="Find selected CheckBox"/>
+  <input type="button" id="bthDisables" value="Find Disabled Controls"/>
+  <input type="button" id="btnFile" value="Find FileControls"/>
+  </body>
+  </html>

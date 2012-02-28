@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Document</title>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+		  // Event handlers for append, prepend , warp around elements,Remove elements,Clone elements, Insert elements After,
+		  //Remove class,Change HTML
+              $("#btnAppend").click(function (){
+			  $("#list1").append(" <li>Items Appended to List</li>");
+			  })
+			  
+			  $("#btnPrepend").click(function (){
+			  $("#list1").prepend(" <li>Items Prepended to List</li>");
+			  })
+			  
+			  $("#btnWrap").click(function (){
+			  $("ul").wrap("<div></div>");
+			  })
+			  
+			  $("#btnRemove").click(function (){
+			  $("p").remove();
+			  })
+			  
+			  $("#btnClone").click(function (){
+			  $("p").clone().appendTo("body");
+			  })
+			  
+			  $("#btnAfter").click(function (){
+			  $("p").after("<p>After Inserted Element</p>");
+			  })
+			  
+			  $("#btnRemoveClass").click(function (){
+			  $("p").removeClass("a");
+			  })
+			  
+			  $("#btnChangeHTML").click(function (){
+			  $("p").html("Changed Paragraph content");
+			  })
+              
+          });
+      </script>
+      <style type="text/css">
+        .a { color: Blue; }
+        .b { color: Maroon; 
+		
+		div{background-color:yellow;}
+        
+		.AddStyleClass
+		{
+		color:red;
+		}
+
+      </style>
+  </head>
+  <body>
+      <ul id="list1">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>
+      </ul>
+	  <p class="a">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b">This is paragraph 3</p>
+      <p>This is paragraph 4</p>
+	  
+	  <input type="button" id="btnAppend" value="Append Elements" />
+	  <input type="button" id="btnPrepend" value="Prepend Elements" />
+	  <input type="button" id="btnWrap" value="Wrap Elements" />
+	  <input type="button" id="btnClone" value="Clone Elements" />
+	  <input type="button" id="btnAfter" value="Insert After " />
+	  <input type="button" id="btnAddClass" value="Add class " />
+	  <input type="button" id="btnRemoveClass" value="Remove class for paragraph 1 " />
+	  <input type="button" id="btnChangeHTML" value="Change HTML " />
+	  <input type="button" id="btnRemove" value="Remove Elements" />
+	  
+  </body>
+  </html>

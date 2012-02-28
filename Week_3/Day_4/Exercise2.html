@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>jQuery Showing and Hiding an Element</title>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              // Show, hide and toggle theDiv element
+              // Animate and grow the width, font size, and position of theDiv element
+              
+			  			    
+			  $("#show").click(function (){
+			  $("div").show("slow");
+			  })
+			  
+			  $("#hide").click(function (){
+			  $("div").hide(1000);
+			  })
+			  
+			  $("#toggle").click(function (){
+			  $("p").toggle();
+			  })
+			  
+			  $("#right").toggle(function(){ 
+			  $("div").show("slow");
+			  $("#theDiv").animate({ 
+				width: "70%", 
+				opacity: 0.4, 
+				marginLeft: "0.6in", 
+				fontSize: "3em", 
+				borderWidth: "10px" 
+			  }, 1500 ); 
+			  },function (){
+			  $("#theDiv").css({width:"",opacity:"",marginLeft:"",fontSize:"",borderWidth:""});
+			  }
+			  
+			  ); 
+			  
+			  $("#text").click(function(){ 
+			  $("p").animate({
+			  fontSize: "3em",
+			  },1500)
+			  });
+
+			  $("#toggleDiv").click(function(){
+			  $("#moveDivId").show("slow");
+	          $(".moveDiv").animate({"left": "+=50px"}, "slow"); 
+              }); 
+
+			  
+			  
+			  
+          });
+      </script>
+      <style type="text/css">
+          div#theDiv {
+              width: 250px;
+              height: 180px;
+              margin: 10px;
+              padding: 20px;
+              background: blue;
+              border: 2px solid black;
+              cursor: pointer;
+		}
+		.moveDiv {
+              width: 250px;
+              height: 180px;
+              margin: 10px;
+              padding: 20px;
+              background: maroon;
+              border: 2px solid black;
+              cursor: pointer;
+			  position:absolute;
+			  top:400px;
+		}
+          p, span {
+              font-size: 16pt;
+          }
+          button {
+              margin: 5px;
+          }
+      </style>
+  </head>
+  <body>
+      <p>Showing and Hiding an Element</p>
+	  <p style="display: none">For Toggeling element</p>
+      <div id="theDiv" style="display: none">
+          Showing and Hiding an Element
+      </div>
+	  <div id="moveDivId"  class="moveDiv">
+          Showing and Hiding an Element
+      </div>
+      <button id="show">Show</button>
+      <button id="hide">Hide</button>
+      <button id="toggle">Toggle</button>
+      <button id="right">Click to Grow Right And click again to go back to same position</button>
+      <button id="text">Big Text</button>
+      <button id="toggleDiv">Move Div</button>
+  </body>
+  </html>

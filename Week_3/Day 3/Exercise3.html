@@ -1,0 +1,70 @@
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Events with jQuery</title>
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              // Bind highlight function on mouseover & mouseleave event on evtTarget element
+              			  
+				  $('#evtTarget').bind('mouseover', function() {
+				  $(this).toggleClass('highlighted');
+			  });
+          
+		  
+			   // unbind highlight function on click event of btnUnbind element.Here the highlighted style class will not be 
+			   // called again and the  div 'evtTarget' will be border by bule for reference
+			     $('#btnUnbind').click(function (){
+				 $('#evtTarget').unbind('mouseover');
+				 $(evtTarget).css("border","solid Blue");
+			  })
+		  
+			  //Implementing Delegates.Here the click event will be attached to all the div elements created by the click 
+			  //of the first div element
+				 $("body").delegate("div", "click", function(){ 
+				 $(this).after("<div><p>Another paragraph for testing delegates.The click event handler is attached to each newly created div!,Click here To Test!!!</p></div>"); 
+			  });
+		  
+			 //Implementing triggers
+		         $("#btnTrig").bind("click", function() {
+				 alert("This is for Testing Triggers 'on click' of the div.Check that the border for div is changed to green")
+                 $("#evtTarget").css("border","10px solid green");
+	 
+              });
+			  
+			//This will be called on every click of the div with id="evtTarget"
+			    $("#evtTarget").click(function(){
+			    $('#btnTrig').trigger('click');
+			 });
+           
+         });
+
+          
+      </script>
+      <style type='text/css'>
+          .normal {
+              width: 300px;
+              height: 200px;
+              background-color: Yellow;
+              font-size: 18pt;
+          }
+
+          .highlighted {
+              background-color: Red;
+			 }
+		  div {
+		  background:yellow; 
+		  font-weight:bold; 
+		  cursor:pointer;  
+          padding:5px; 
+	      } 
+         div.over { background: #ccc; }
+		 
+      </style>
+  </head>
+  <body>
+  <h1>Binding Event Example</h1>
+  <div id="evtTarget" class="normal">Mouse over this div to see the effect. Click on it to unbind the mouseover.</div>
+  <input type="button" id="btnUnbind" value="Unbind Mouseover from div" />
+  <input type="button" id="btnTrig" value="To bind event handler for triggers" />
+  </body>
+  </html>

@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <title>Document</title>
+  <!-- Add JQuery here -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript">
+      $("document").ready(function() {
+          // Example
+          // Use basic selectors, basic filters, attribute selectors, content filters, hierarchy filters
+          $('#button1').toggle(function() {
+              $("p").css("border", "3px solid red");
+          }, function() {
+              $("p").css("border", "");
+          });
+		  
+		  //To add animation
+		  $("#btnAttribute").click(function(){ 
+          $("p:animated").toggleClass("colored"); 
+          }); 
+          function animateIt() { 
+          $("#pAnimate").slideToggle("slow", animateIt); 
+          } 
+          animateIt();
+		  
+		  //To select the even rows
+		  $("li:even").css("background-color", "#bbbbff");
+		  
+		  //To highlight the unchecked checkboxes
+		   $("#btnNot").toggle(function (){
+		   $("input:not(:checked) + span").css("background-color", "Maroon"); 
+           },function(){
+		   $("input:not(:checked) + span").css("background-color", ""); 
+           }
+		   )
+		   
+		   //To highlight the contents within a control
+		   $("#btnHas").click(function (){
+		   $("div:has(input)").addClass("test");
+		   }
+		   );
+		   
+		});
+  </script>
+  <style type="text/css">
+  .a { color: Navy; }
+  .b { color: Maroon; }
+  p 
+  { 
+  background:yellow; 
+  border:1px solid #AAA; 
+  width:80px; 
+  height:80px; 
+  margin:0 5px; 
+  float:left; } 
+  
+  p.colored { background:green; } 
+.test{ border: 3px inset red; } 
+
+
+  </style>
+  </head>
+  <body>
+      <ul id="list1">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>
+      </ul>
+	  <div> 
+		  <input type="checkbox" name="a" /> 
+		  <span>Mary</span> 
+	  </div> 
+ 
+      <div> 
+		  <input type="checkbox" name="b" id="chkB" /> 
+		  <span>lcm</span> 
+	  </div> 
+	  <div> 
+	      <input type="checkbox" name="c"  /> 
+	 	  <span>Peter</span> 
+	  </div> 
+
+	  <br/>
+      <p class="a">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b" id="pAnimate">This is paragraph 3</p>
+      <p>This is paragraph 4</p>
+      <!-- Add multiple buttons for each selector -->
+      <input type="button" id="button1" value="Select All Ps" />
+	  <input type="button" id="btnAttribute" value="Animate" />
+	  <input type="button" id="btnNot" value="Not Selector" />
+	  <input type="button" id="btnHas" value="has Selector" />
+	  
+	</body>
+  </html>
